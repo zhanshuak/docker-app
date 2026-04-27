@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASS }}
 
       - name: Build image
-        run: docker build -t ${{ secrets.DOCKER_USER }}/backend:latest ./backend
+        run: docker build -t ${{ secrets.DOCKER_USER }}/backend:latest -f backend/Dockerfile backend
 
       - name: Push image
         run: docker push ${{ secrets.DOCKER_USER }}/backend:latest
@@ -33,4 +33,4 @@ jobs:
           script: |
             cd docker-app
             docker compose pull
-            docker compose up -d
+            docker compose up -dzhanshuak/docker-app.git
