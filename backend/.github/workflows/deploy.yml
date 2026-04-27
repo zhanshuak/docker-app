@@ -19,8 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASS }}
 
       - name: Build image
-        run: docker build -t ${{ secrets.DOCKER_USER }}/backend:latest -f backend/Dockerfile backend
-
+        run: docker build --no-cache -t ${{ secrets.DOCKER_USER }}/backend:latest backend
       - name: Push image
         run: docker push ${{ secrets.DOCKER_USER }}/backend:latest
 
